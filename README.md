@@ -1,8 +1,8 @@
-# Log Analysis
+# Log Analysis Project
 
 ## Overview
 
-This project is aimed to create multiple SQL queries to obtain information from a news database. The code is expected to have single query to answer individual requests. The objective is to test SQL skills. (This project is for Logs Analysis from Udacity Full Stack Developer Nanodegree)
+This project is aimed at creating multiple SQL queries to obtain information from a news database. The code is expected to have single query to answer individual requests. The objective is to test SQL skills. (This project is for Logs Analysis from Udacity Full Stack Developer Nanodegree)
 
 ### Requirements
 
@@ -24,8 +24,13 @@ The project has three objectives,
 * Clone this repo
 > `git clone https://github.com/prkksh/Logs-Analysis/`
 * Open terminal and cd in to the folder vagrant is installed and run 'vagrant up' to launch the linux VM. Once its done, login using 'vagrant ssh' command.
-* Download the database from <a href = "https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip">here</a>. Move this file to the vagrant folder.
+* The files are inside the vagrant folder. To access the files, run
+>`cd /vagrant`
+
+* Download the database from <a href = "https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip">here</a>. Move this file in to the vagrant folder.
 * From terminal run
->`psql -d news -f newsdata.sql;`
+>`psql -d news -f newsdata.sql`
+* Once the database is set, connect to the database using
+>`psql -d news`
 * Run the module with
 >`python logs.py`
