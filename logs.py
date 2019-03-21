@@ -22,7 +22,7 @@ query3 = """SELECT date(time), round(100.0*sum(CASE log.status \n
             FROM log \n
             GROUP BY date(time) ORDER BY total_error DESC LIMIT 1;"""
 
-#To connect to DB and run query:
+# To connect to DB and run query:
 
 def get_query(query):
     db = psycopg2.connect(database=DBNAME)
@@ -32,11 +32,12 @@ def get_query(query):
     db.close()
     return results
 
+
 result1 = get_query(query1)
 result2 = get_query(query2)
 result3 = get_query(query3)
 
-#To print the results stored:
+# To print the results stored:
 
 def print_res(results):
     for i in range(len(results)):
@@ -45,9 +46,16 @@ def print_res(results):
         print("\t" + "%s" % (ar_name) + " - " + "%d" %(ar_clicks) + " views")
     print("\n")
 
+def print_err_res(err_res):
+    for i in range(len(err_res)):
+        err_day = err_res[i][0]
+        err_per = err_res[i][1]
+        print("\t" + str(err_day) + " - " + str(err_per) + "%")
+    print("\n")
+
 print("What are the most popular articles of all time?")
 print_res(result1)
 print("What are the most popular article authors of all time?")
 print_res(result2)
 print("On which days more than 1% of requests lead to error?")
-print("\t" + str(result3[0][0]) + " - " + str(result3[0][1]) + "%")
+print_err_res(result3)
