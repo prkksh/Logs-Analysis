@@ -24,7 +24,9 @@ query3 = """SELECT date(time), round(100.0*sum(CASE log.status \n
 
 # To connect to DB and run query:
 
+
 def get_query(query):
+
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
     c.execute(query)
@@ -39,19 +41,24 @@ result3 = get_query(query3)
 
 # To print the results stored:
 
+
 def print_res(results):
+
     for i in range(len(results)):
         ar_name = results[i][0]
         ar_clicks = results[i][1]
-        print("\t" + "%s" % (ar_name) + " - " + "%d" %(ar_clicks) + " views")
+        print("\t" + "%s" % (ar_name) + " - " + "%d" % (ar_clicks) + " views")
     print("\n")
 
+
 def print_err_res(err_res):
+
     for i in range(len(err_res)):
         err_day = err_res[i][0]
         err_per = err_res[i][1]
         print("\t" + str(err_day) + " - " + str(err_per) + "%")
     print("\n")
+
 
 print("What are the most popular articles of all time?")
 print_res(result1)
